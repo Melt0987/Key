@@ -1,0 +1,12 @@
+name: key #needed but name can be arbitrary
+
+on: [push, pull_request, deployment]
+
+env:
+    runs-on: ubuntu-latest
+      - uses: actions/labeler@v2
+        with:
+          repo-token: ${{ secrets.name_of_my_key }}
+      credentials: #these don't work yet, if anyone can tell me why?
+        username: ${{ github.actor }}
+        password: ${{ secrets.ghcr_token }}
